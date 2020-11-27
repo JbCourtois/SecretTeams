@@ -6,13 +6,13 @@
 
 {% if game > 1 %}
 <a href="{{game|add:-1}}">
-<img border="0" alt="Partie précédente" src="{% static "previous.png" %}" width="150" height="150">
+<img border="0" alt="Partie précédente" title="Partie précédente" src="{% static "previous.png" %}" width="150" height="150">
 </a>
 {% endif %}
 
 <img border="0" alt="{{team}}" src="{% static "teams/" %}{{team}}.svg" width="300" height="300">
 
 <a href="{{game|add:1}}">
-<img border="0" alt="Partie suivante" src="{% static "next.png" %}" width="150" height="150">
+<img border="0" alt="Partie suivante" title="Partie suivante" src="{% static "next.png" %}" width="150" height="150">
 </a>
 {% endblock %}
