@@ -10,11 +10,15 @@ def index(request):
 
 def generate(request, *args, **kwargs):
     game = kwargs.get('game', 1)
-    seed = f'{kwargs.get("seed")}{game}'
-    rng = Random(seed)
+    seed = kwargs.get('seed', '')
+    rng = Random(f'{seed}{game}')
 
     teams = list(kwargs['teams'])
     rng.shuffle(teams)
     team = teams[kwargs['player']]
 
-    return render(request, "teams.html", {'team': team, 'game': game})
+    return render(request, "teams.html", {
+        'team': team,
+        'game': game,
+        'seed': seed,
+    })
