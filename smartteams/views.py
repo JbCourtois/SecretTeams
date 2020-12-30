@@ -5,7 +5,7 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return render(request, "index.html")
+    return render(request, "smartteams/index.html")
 
 
 def generate(request, *args, **kwargs):
@@ -17,7 +17,7 @@ def generate(request, *args, **kwargs):
     rng.shuffle(teams)
     team = teams[kwargs['player']]
 
-    return render(request, "teams.html", {
+    return render(request, "smartteams/teams.html", {
         'team': team,
         'game': game,
         'seed': seed,
